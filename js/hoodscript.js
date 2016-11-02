@@ -55,9 +55,13 @@ var selectedCity = myCities[0]//selected city defaults to first myCities city.
 ,toner = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
     attribution: '<a href="http://stamen.com/" target="_blank" >Stamen</a>'
 })
-,sat = L.tileLayer("http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg", {
-  attribution: 'Search<a href="http://www.mapquest.com/" target="_blank"><img src="http://developer.mapquest.com/content/osm/mq_logo.png"></a>, NASA/JPL, Caltech, USDA',
-  subdomains: '1234'
+//,sat = L.tileLayer("http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg", {
+//  attribution: 'Search<a href="http://www.mapquest.com/" target="_blank"><img src="http://developer.mapquest.com/content/osm/mq_logo.png"></a>, NASA/JPL, Caltech, USDA',
+//  subdomains: '1234'
+//});
+// https: also suppported.
+,sat  = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 /*---------------------------
 ----- $(window).load -------
@@ -237,8 +241,10 @@ function go(){
     $("#submitModal").modal('hide');
     $(".cty-group > button.btn").removeClass('active');
     $(".nbr-group > button.btn").removeClass('active');
-    cityYears = 999;
-    nbrhdYears = 999;
+    //cityYears = 999;
+    cityYears = num;    
+    //nbrhdYears = 999;
+    nbrhdYears = num;
     $('.typeahead').unbind();
 
     drawnItems.eachLayer(function (layer) {
