@@ -1,5 +1,6 @@
 <?php
-include '../../../../apis/cartodbProxy.php';
+include '/var/www/cartodbProxy.php';
+//include '../../../../apis/cartodbProxy.php';
 //			^CHANGE THIS TO THE PATH TO YOUR cartodbProxy.php
 $q = "INSERT INTO " . $_POST['table'] . " (the_geom, city, description, name,city_yrs,nbrhd_yrs,flag,loved) VALUES (ST_SetSRID(ST_GeomFromGeoJSON('";
 if ( $_POST['ext'] != "_point" ){
